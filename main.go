@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"leaning-golang-source-test/context-go"
+)
 
 func main() {
-	fmt.Println("aa")
+	context_go.Test1()
+	context_go.Test2()
 }

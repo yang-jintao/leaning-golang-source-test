@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"time"
+	"unsafe"
 )
 
 func Test1() {
@@ -60,4 +61,25 @@ func Test2() {
 		// 但是Test2也会在等待5秒后读取管道，这样就不卡了
 	}
 	time.Sleep(time.Hour)
+}
+
+type animal interface {
+	eat()
+	sleep()
+}
+
+type milk struct {
+	animal
+	v1 int
+	v2 int
+	v3 int
+}
+
+func Test3() {
+	var m milk = milk{v1: 1, v2: 2, v3: 3}
+	var a animal = m
+	fmt.Println("size: ", unsafe.Sizeof(m))
+	fmt.Println("value: ", m)
+	fmt.Println("size: ", unsafe.Sizeof(a))
+	fmt.Println("value: ", a)
 }

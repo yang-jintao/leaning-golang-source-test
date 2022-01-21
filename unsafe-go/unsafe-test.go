@@ -22,3 +22,17 @@ func Test1() {
 	*language = "english"
 	fmt.Println("new p: ", p)
 }
+
+func Test2() {
+	s := make([]int, 9, 20)
+	len := (*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + uintptr(8)))
+	fmt.Println("len: ", *len)
+	cap := (*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + uintptr(16)))
+	fmt.Println("cap: ", *cap)
+
+	mp := make(map[string]int)
+	mp["qcrao"] = 100
+	mp["stefno"] = 18
+	count := (**int)(unsafe.Pointer(&mp)) //因为make()返回的就是hmap的地址，所以&mp是对地址取指针，需要（**int）
+	fmt.Println("count: ", **count)
+}

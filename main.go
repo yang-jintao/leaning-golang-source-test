@@ -1,8 +1,6 @@
 package main
 
-import (
-	"leaning-golang-source-test/unsafe-go"
-)
+import unsafe_go "leaning-golang-source-test/unsafe-go"
 
 type Programmer struct {
 	name     string
@@ -14,7 +12,8 @@ func main() {
 	//context_go.Test1()
 	//context_go.Test2()
 	//context_go.Test3()
-	unsafe_go.Test1()
+	//unsafe_go.Test1()
+	unsafe_go.Test2()
 }
 
 type MaxQueue struct {
